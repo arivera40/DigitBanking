@@ -1,0 +1,76 @@
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == "screen-md" {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+body {
+	max-width: 1440px;
+	margin: 0 auto;
+	font-family: 'Nunito Sans-Regular', sans-serif;
+}
+
+.main-container {
+	padding: 0 15px;
+	@include breakpoint(screen-md) {
+		padding: 0 112px;
+	}
+	
+	.form-input {
+		display: block;
+		max-width: 340px;
+		margin-bottom: 15px;
+		
+		label {
+			display: block;
+			font-size: 20px;
+			margin-bottom: 5px;
+		}
+		
+		input {
+			display: block;
+			height: 42px;
+			width: 100%;
+			font-size: 17px;
+			padding: 6px 12px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		    box-sizing: border-box;
+
+			
+			&::active,
+			&::focus {
+				border-color: #66afe9;
+			}
+		}
+	}
+}
+
+.login,
+.registration {
+	max-width: 480px;
+	margin: 0 auto;
+	form {
+		.form-container {
+			background: #f6f6f6;
+			border: 1px solid #000;
+			border-radius: 30px;
+			padding: 48px 16px;
+			
+			@include breakpoint(screen-md) {
+				padding: 24px;
+			}
+			
+			.form-input {
+				margin: 0 auto 15px;
+			}
+			
+			.form-action {
+				text-align: center;
+			}
+		}
+	}
+}
