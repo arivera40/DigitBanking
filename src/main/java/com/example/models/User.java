@@ -6,7 +6,7 @@ public class User {
 	private String lastName;
 	private String email;
 	private String phoneNumber;
-	private String ***REMOVED***;
+	private String password;
 	
 	public User() {
 		this.setUserId(0);
@@ -14,23 +14,23 @@ public class User {
 		this.lastName = "";
 		this.email = "";
 		this.phoneNumber = "";
-		this.***REMOVED*** = "";
+		this.password = "";
 	}
 	
-	public User(String firstName, String lastName, String email, String ***REMOVED***) {
+	public User(String firstName, String lastName, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = null;
-		this.***REMOVED*** = ***REMOVED***;
+		this.password = password;
 	}
 	
-	public User(String firstName, String lastName, String email, String phoneNumber, String ***REMOVED***) {
+	public User(String firstName, String lastName, String email, String phoneNumber, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
-		this.***REMOVED*** = ***REMOVED***;
+		this.password = password;
 	}
 	
 	/**
@@ -104,17 +104,17 @@ public class User {
 	}
 
 	/**
-	 * @return the ***REMOVED***
+	 * @return the password
 	 */
 	public String getPassword() {
-		return ***REMOVED***;
+		return password;
 	}
 
 	/**
-	 * @param ***REMOVED*** the ***REMOVED*** to set
+	 * @param password the password to set
 	 */
-	public void setPassword(String ***REMOVED***) {
-		this.***REMOVED*** = ***REMOVED***;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

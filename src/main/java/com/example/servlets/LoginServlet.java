@@ -40,10 +40,10 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
-		String ***REMOVED*** = request.getParameter("***REMOVED***");
+		String password = request.getParameter("password");
 		
 		UserDao userDao = new UserDao();
-		User user = userDao.loginUserByEmail(email, ***REMOVED***);
+		User user = userDao.loginUserByEmail(email, password);
 		
 		if (user == null) {
 			System.out.println("Login failed!");

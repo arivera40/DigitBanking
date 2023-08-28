@@ -3,7 +3,7 @@ CREATE TABLE `users` (
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `***REMOVED***` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
   `phone_number` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),

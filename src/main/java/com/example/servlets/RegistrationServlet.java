@@ -44,14 +44,14 @@ public class RegistrationServlet extends HttpServlet {
 		String lastName = request.getParameter("last_name");
 		String email = request.getParameter("email");
 		String phoneNumber = request.getParameter("phone_number");
-		String ***REMOVED*** = request.getParameter("***REMOVED***");
+		String password = request.getParameter("password");
 		
-		if (firstName == null || lastName == null || email == null || phoneNumber == null || ***REMOVED*** == null) {
+		if (firstName == null || lastName == null || email == null || phoneNumber == null || password == null) {
 			System.out.println(firstName);
 			System.out.println(lastName);
 			System.out.println(email);
 			System.out.println(phoneNumber);
-			System.out.println(***REMOVED***);
+			System.out.println(password);
 			String errorMessage = "Please fill in all fields to register.";
 		    request.setAttribute("fieldError", errorMessage);
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
@@ -60,7 +60,7 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		
 		// Create a User object
-		User newUser = new User(firstName, lastName, email, phoneNumber, ***REMOVED***);
+		User newUser = new User(firstName, lastName, email, phoneNumber, password);
 		
 		// Add User to database
 		UserDao userDao = new UserDao();

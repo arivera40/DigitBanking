@@ -23,8 +23,8 @@
 					<input type="text" id="email" name="email" required>
 				</div>
 				<div class="form-input">
-					<label for="***REMOVED***">Password</label>
-					<input type="***REMOVED***" id="***REMOVED***" name="***REMOVED***" required>
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" required>
 				</div>
 				<div class="form-action">
 					<button type="submit">Login</button>

@@ -19,11 +19,11 @@ public class UserDao {
 		}
 	}
 	
-	public User loginUserByEmail(String email, String ***REMOVED***) {
-		String query = "SELECT * FROM users WHERE email = ? AND ***REMOVED*** = ?";
+	public User loginUserByEmail(String email, String password) {
+		String query = "SELECT * FROM users WHERE email = ? AND password = ?";
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setString(1, email);
-			stmt.setString(2, ***REMOVED***);
+			stmt.setString(2, password);
 			
 			try (ResultSet rs = stmt.executeQuery()) {
 				if (rs.next()) {
@@ -33,7 +33,7 @@ public class UserDao {
 					user.setLastName(rs.getString("last_name"));
 					user.setEmail(rs.getString("email"));
 					user.setPhoneNumber(rs.getString("phone_number"));
-					user.setPassword(rs.getString("***REMOVED***"));
+					user.setPassword(rs.getString("password"));
 					return user;
 				} else {
 					return null;
@@ -45,12 +45,12 @@ public class UserDao {
 		}
 	}
 	
-//	public User loginUserByPhone(String phoneNumber, String ***REMOVED***) {
+//	public User loginUserByPhone(String phoneNumber, String password) {
 //		
 //	}
 	
 	public boolean registerUser(User user) {
-		String query = "INSERT INTO users (first_name, last_name, email, phone_number, ***REMOVED***) VALUES (?, ?, ?, ?, ?)";
+		String query = "INSERT INTO users (first_name, last_name, email, phone_number, password) VALUES (?, ?, ?, ?, ?)";
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setString(1, user.getFirstName());
 			stmt.setString(2, user.getLastName());

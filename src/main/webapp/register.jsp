@@ -51,16 +51,16 @@
 				    <% } %>
 				</div>
 				<div class="form-input">
-					<label for="***REMOVED***">Password</label>
-					<input type="***REMOVED***" id="***REMOVED***" name="***REMOVED***" required>
-					<% String ***REMOVED***Error = (String) request.getAttribute("fieldError");
-				       if (***REMOVED***Error != null) { %>
-				        <div class="error-message"><%= ***REMOVED***Error %></div>
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" required>
+					<% String passwordError = (String) request.getAttribute("fieldError");
+				       if (passwordError != null) { %>
+				        <div class="error-message"><%= passwordError %></div>
 				    <% } %>
 				</div>
 				<div class="form-input">
-					<label for="confirm_***REMOVED***">Confirm Password</label>
-					<input type="***REMOVED***" id="confirm_***REMOVED***" name="confirm_***REMOVED***" required>
+					<label for="confirm_password">Confirm Password</label>
+					<input type="password" id="confirm_password" name="confirm_password" required>
 					<% String confirmPasswordError = (String) request.getAttribute("fieldError");
 				       if (confirmPasswordError != null) { %>
 				        <div class="error-message"><%= confirmPasswordError %></div>
