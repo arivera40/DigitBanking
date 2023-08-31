@@ -1,28 +1,51 @@
 body {
-  max-width: 1440px;
-  margin: 0 auto;
+  width: auto;
+  padding: 0 112px;
   font-family: "Nunito Sans-Regular", sans-serif;
 }
-
-.main-container {
+body .header-sec {
+  width: auto;
+  display: flex;
+  height: 75px;
+}
+body .header-sec .account-tools {
+  width: 75px;
+}
+body .header-sec .logo-sec {
+  width: 100%;
+}
+body .header-sec .logo-sec .logo {
+  margin: 0 75px 0 0;
+  text-align: center;
+}
+body .nav-menu {
+  display: flex;
+  gap: 8px;
+  width: auto;
+  justify-content: center;
+}
+body .nav-menu .nav-item {
+  height: 40px;
+}
+body .main-container {
   padding: 0 15px;
 }
 @media (max-width: 1024px) {
-  .main-container {
+  body .main-container {
     padding: 0 112px;
   }
 }
-.main-container .form-input {
+body .main-container .form-input {
   display: block;
   max-width: 340px;
   margin-bottom: 15px;
 }
-.main-container .form-input label {
+body .main-container .form-input label {
   display: block;
   font-size: 20px;
   margin-bottom: 5px;
 }
-.main-container .form-input input {
+body .main-container .form-input input {
   display: block;
   height: 42px;
   width: 100%;
@@ -33,33 +56,40 @@ body {
   border-radius: 4px;
   box-sizing: border-box;
 }
-.main-container .form-input input::active, .main-container .form-input input::focus {
+body .main-container .form-input input::active, body .main-container .form-input input::focus {
   border-color: #66afe9;
 }
-
-.login,
-.registration {
+body .login,
+body .registration {
   max-width: 480px;
   margin: 0 auto;
 }
-.login form .form-container,
-.registration form .form-container {
+body .login form .form-container,
+body .registration form .form-container {
   background: #f6f6f6;
   border: 1px solid #000;
   border-radius: 30px;
   padding: 48px 16px;
 }
 @media (max-width: 1024px) {
-  .login form .form-container,
-  .registration form .form-container {
+  body .login form .form-container,
+  body .registration form .form-container {
     padding: 24px;
   }
 }
-.login form .form-container .form-input,
-.registration form .form-container .form-input {
+body .login form .form-container .form-input,
+body .registration form .form-container .form-input {
   margin: 0 auto 15px;
 }
-.login form .form-container .form-action,
-.registration form .form-container .form-action {
+body .login form .form-container .form-action,
+body .registration form .form-container .form-action {
   text-align: center;
+}
+body .home h1 {
+  text-align: center;
+}
+body .home .two-col {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
 }
