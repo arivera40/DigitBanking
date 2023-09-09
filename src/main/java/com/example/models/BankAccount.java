@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class BankAccount {
 	private int accountId;
+	private AccountType accountType;
 	private int userId;
 	private BigDecimal balance;
 	
@@ -31,6 +32,20 @@ public class BankAccount {
 	 */
 	public void setAccountId(int accountId) {
 		this.accountId = accountId;
+	}
+	
+	/**
+	 * @return the accountType
+	 */
+	public AccountType getAccountType() {
+		return accountType;
+	}
+
+	/**
+	 * @param accountType the accountType to set
+	 */
+	public void setAccountType(AccountType accountType) {
+		this.accountType = accountType;
 	}
 
 	/**

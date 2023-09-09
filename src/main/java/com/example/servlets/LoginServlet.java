@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -48,7 +49,11 @@ public class LoginServlet extends HttpServlet {
 		if (user == null) {
 			System.out.println("Login failed!");
 		} else {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 			System.out.println("Login success!");
+			
+			response.sendRedirect(request.getContextPath() + "/home");
 		}
 	}
 

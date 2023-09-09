@@ -18,7 +18,7 @@ public class TransactionDao {
 		try {
 			this.connection = DatabaseConnection.getConnection();
 		} catch (SQLException e) {
-			throw new RuntimeException("Error initializing UserDao", e);
+			throw new RuntimeException("Error initializing TransactionDao", e);
 		}
 	}
 	
