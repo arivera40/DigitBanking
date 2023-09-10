@@ -50,32 +50,22 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AccountServlet</servlet-name>
-    <url-pattern>/AccountServlet</url-pattern>
+    <url-pattern>/account</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DepositServlet</servlet-name>
-    <url-pattern>/DepositServlet</url-pattern>
+    <url-pattern>/deposit</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>WithdrawServlet</servlet-name>
-    <url-pattern>/WithdrawServlet</url-pattern>
+    <url-pattern>/withdraw</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>TransferServlet</servlet-name>
-    <url-pattern>/TransferServlet</url-pattern>
+    <url-pattern>/transfer</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ZelleServlet</servlet-name>
-    <url-pattern>/ZelleServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>BankAccountDao</display-name>
-    <servlet-name>BankAccountDao</servlet-name>
-    <servlet-class>com.example.dao.BankAccountDao</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BankAccountDao</servlet-name>
-    <url-pattern>/BankAccountDao</url-pattern>
+    <url-pattern>/zelle</url-pattern>
   </servlet-mapping>
 </web-app>

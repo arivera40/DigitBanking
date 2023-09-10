@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.example.models.Transaction;
 import com.example.models.TransactionType;
+import com.example.service.TransactionService;
 import com.example.util.DatabaseConnection;
 
 public class TransactionDao {
@@ -30,8 +31,26 @@ public class TransactionDao {
 			stmt.setInt(3, transaction.getFromAccountId());
 			stmt.setInt(4,  transaction.getToAccountId());
 			int rowsInserted = stmt.executeUpdate();
+			
+			if (rowsInserted > 0) {
+				switch(transaction.getTransactionType()) {
+					case DEPOSIT:
+						TransactionService.performDeposit(transaction);
+						break;
+					case WITHDRAW:
+						TransactionService.performWithdraw(transaction);
+						break;
+					case TRANSFER:
+						TransactionService.performTransfer(transaction);
+						break;
+					case ZELLE:
+						TransactionService.performZelle(transaction);
+						break;
+				}
+			}
+			
 			return rowsInserted > 0;
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}

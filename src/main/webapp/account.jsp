@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +15,8 @@
 	    </tr>
 	    <c:forEach items="${accounts}" var="account">
 	        <tr>
-	            <td>${account.accountType}</td>
-	            <td>${account.balance}</td>
+	            <td>${account.getAccountType()}</td>
+	            <td>${account.getBalance()}</td>
 	        </tr>
 	    </c:forEach>
 	</table>

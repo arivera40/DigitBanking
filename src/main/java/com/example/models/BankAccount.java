@@ -9,15 +9,15 @@ public class BankAccount {
 	private BigDecimal balance;
 	
 	public BankAccount() {
-		this.setAccountId(0);
-		this.setUserId(0);
-		this.setBalance(null);
+		this.accountId = 0;
+		this.userId = 0;
+		this.balance = null;
 	}
 	
 	public BankAccount(int accountId, int userId, BigDecimal balance) {
-		this.setAccountId(accountId);
-		this.setUserId(userId);
-		this.setBalance(balance);
+		this.accountId = accountId;
+		this.userId = userId;
+		this.balance = balance;
 	}
 
 	/**

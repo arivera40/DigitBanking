@@ -16,7 +16,6 @@
 </head>
 <body>
     <header>
-        <!-- Header content -->
         <div class="header-sec">
         	<div class="account-tools">
         		menu
@@ -31,9 +30,8 @@
     
     <nav>
     	<div class="nav-menu">
-    		<!-- Navigation links (CTA buttons) -->
     		<div class="nav-item account-btn">
-    			<a href="AccountServlet">Account</a>
+    			<a href="${pageContext.request.contextPath}/account">Account</a>
     		</div>
     		<div class="nav-item deposit-btn">
 	        	<a href="DepositServlet">Deposit</a>
@@ -47,12 +45,10 @@
 	        <div class="nav-item transfer-btn">
 	        	<a href="ZelleServlet">Zelle</a>
 	        </div>
-        <!-- Add more links as needed -->
     	</div>
     </nav>
     
     <main>
-        <!-- Main content area -->
         <div class="main-container container-fluid home">
         	<h1>Welcome back Andy!</h1>
         	<div class="two-col">
@@ -71,7 +67,6 @@
         		</div>
         	</div>
        	</div>
-        <!-- Display user-specific information or actions -->
     </main>
     
 </body>

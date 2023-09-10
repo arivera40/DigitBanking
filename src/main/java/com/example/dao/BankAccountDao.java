@@ -34,14 +34,12 @@ public class BankAccountDao {
 					BankAccount account;
 					if (rs.getInt("account_type") == 1) {
 						account = new BankAccount();
+						account.setAccountType(AccountType.CHECKING);
 					} else {
 						account = new SavingsAccount();
-						((SavingsAccount) account).setWithdrawalCount(rs.getInt("withdrawl_count"));
-						((SavingsAccount) account).setCreationDate(rs.getDate("creation_date"));
+						account.setAccountType(AccountType.SAVINGS);
 					}
-					account = new SavingsAccount();
 					account.setAccountId(rs.getInt("account_id"));
-					account.setAccountType(AccountType.SAVINGS);
 					account.setUserId(userId);
 					account.setBalance(rs.getBigDecimal("balance"));
 					accounts.add(account);
