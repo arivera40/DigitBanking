@@ -22,8 +22,8 @@
 			<p>Please fill out the fields below to make a deposit.</p>
 			<div class="form-container">
 				<div class="form-input">
-					<label for="selectedAccount">Select a Bank Account</label>
-					<select name="selectedAccount" id="selectedAccount">
+					<label for="toAccountId">Select a Bank Account</label>
+					<select name="toAccountId" id="toAccountId">
 					    <c:forEach items="${accounts}" var="account">
 					      <option value="${account.getAccountId()}">${account.getAccountType()}</option>
 					    </c:forEach>

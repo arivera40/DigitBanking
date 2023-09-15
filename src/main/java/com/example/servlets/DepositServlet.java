@@ -55,14 +55,14 @@ public class DepositServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Retrieve data from post
-		int accountId = Integer.parseInt(request.getParameter("selectedAccount"));
+		int toAccountId = Integer.parseInt(request.getParameter("toAccountId"));
 		BigDecimal amount = TransactionService.convertToCurrency(request.getParameter("amount"));
 		
 		// Create and fill deposit transaction.
 		Transaction deposit = new Transaction();
 		deposit.setTransactionType(TransactionType.DEPOSIT);
 		deposit.setAmount(amount);
-		deposit.setToAccountId(accountId);
+		deposit.setToAccountId(toAccountId);
 		
 		// Add deposit transaction.
 		TransactionDao transactionDao = new TransactionDao();

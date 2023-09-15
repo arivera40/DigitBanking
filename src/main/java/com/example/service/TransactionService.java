@@ -46,14 +46,31 @@ public class TransactionService {
     }
 
     public static boolean performTransfer(Transaction transaction) {
-    	String from_query = "UPDATE bank_accounts SET balance = balance - ? WHERE account_id = ?";
-    	String to_query = "UPDATE bank_accounts SET balance = balance + ? WHERE account_id = ?";
-    	return true;
+    	String fromQuery = "UPDATE bank_accounts SET balance = balance - ? WHERE account_id = ?";
+    	String toQuery = "UPDATE bank_accounts SET balance = balance + ? WHERE account_id = ?";
+        try (PreparedStatement stmtFrom = connection.prepareStatement(fromQuery);
+        		PreparedStatement stmtTo = connection.prepareStatement(toQuery)) {
+        	
+           // Execute the 'from_query' statement.
+           stmtFrom.setBigDecimal(1, transaction.getAmount());
+           stmtFrom.setInt(2, transaction.getFromAccountId());
+           int rowsUpdatedFrom = stmtFrom.executeUpdate();
+
+           // Execute the 'to_query' statement.
+           stmtTo.setBigDecimal(1, transaction.getAmount());
+           stmtTo.setInt(2, transaction.getToAccountId());
+           int rowsUpdatedTo = stmtTo.executeUpdate();
+
+           return (rowsUpdatedFrom > 0 && rowsUpdatedTo > 0) ? true : false;
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        	return false;
+        }
     }
 
     public static boolean performZelle(Transaction transaction) {
-    	String from_query = "UPDATE bank_accounts SET balance = balance - ? WHERE account_id = ?";
-    	String to_query = "UPDATE bank_accounts SET balance = balance + ? WHERE account_id = ?";
+    	String fromQuery = "UPDATE bank_accounts SET balance = balance - ? WHERE account_id = ?";
+    	String toQuery = "UPDATE bank_accounts SET balance = balance + ? WHERE account_id = ?";
     	return true;
     }
     

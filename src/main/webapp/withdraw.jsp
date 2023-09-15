@@ -14,14 +14,14 @@
 <title>Account Withdraw</title>
 </head>
 <body>
-	<div class="main-container container-fluid Withdraw">
+	<div class="main-container container-fluid withdraw">
 		<form action="withdraw" method="post">
 			<h1>Withdraw</h1>
 			<p>Please fill out the fields below to make a withdraw.</p>
 			<div class="form-container">
 				<div class="form-input">
-					<label for="selectedAccount">Select a Bank Account</label>
-					<select name="selectedAccount" id="selectedAccount">
+					<label for="fromAccountId">Select a Bank Account</label>
+					<select name="fromAccountId" id="fromAccountId">
 					    <c:forEach items="${accounts}" var="account">
 					      <option value="${account.getAccountId()}">${account.getAccountType()}</option>
 					    </c:forEach>

@@ -54,14 +54,14 @@ public class WithdrawServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Retrieve data from post.
-		int accountId = Integer.parseInt(request.getParameter("selectedAccount"));
+		int fromAccountId = Integer.parseInt(request.getParameter("fromAccountId"));
 		BigDecimal amount = TransactionService.convertToCurrency(request.getParameter("amount"));
 		
 		// Create and fill withdraw transaction.
 		Transaction withdraw = new Transaction();
 		withdraw.setTransactionType(TransactionType.WITHDRAW);
 		withdraw.setAmount(amount);
-		withdraw.setFromAccountId(accountId);
+		withdraw.setFromAccountId(fromAccountId);
 		
 		// Add withdraw transaction.
 		TransactionDao transactionDao = new TransactionDao();
