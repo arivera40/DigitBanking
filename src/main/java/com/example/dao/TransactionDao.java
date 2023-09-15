@@ -23,15 +23,31 @@ public class TransactionDao {
 		}
 	}
 	
-	public boolean createTransaction(Transaction transaction) {
-		String query = "INSERT INTO transactions (transaction_type, amount, from_account_id, to_accountid) VALUES (?, ?, ?, ?)";
+	public boolean addTransaction(Transaction transaction) {
+		String query = "INSERT INTO transactions (transaction_type, amount, from_account_id, to_account_id) VALUES (?, ?, ?, ?)";
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+			int fromAccountId = transaction.getFromAccountId();
+			int toAccountId = transaction.getToAccountId();
+			System.out.println(fromAccountId);
+	
 			stmt.setInt(1, transaction.getTransactionType().getValue());
 			stmt.setBigDecimal(2, transaction.getAmount());
-			stmt.setInt(3, transaction.getFromAccountId());
-			stmt.setInt(4,  transaction.getToAccountId());
-			int rowsInserted = stmt.executeUpdate();
 			
+			// Send null if fromAccountId is not set.
+			if (fromAccountId != 0) {
+				stmt.setInt(3, fromAccountId);
+			} else {
+				stmt.setNull(3, java.sql.Types.INTEGER);
+			}
+			
+			// Send null if toAccountId is not set.
+			if (toAccountId != 0) {
+				stmt.setInt(4, toAccountId);
+			} else {
+				stmt.setNull(4, java.sql.Types.INTEGER);
+			}
+
+			int rowsInserted = stmt.executeUpdate();
 			if (rowsInserted > 0) {
 				switch(transaction.getTransactionType()) {
 					case DEPOSIT:
@@ -48,7 +64,6 @@ public class TransactionDao {
 						break;
 				}
 			}
-			
 			return rowsInserted > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();

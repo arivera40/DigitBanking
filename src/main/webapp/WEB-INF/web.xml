@@ -2,11 +2,11 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>DigitBanking</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>RegistrationServlet</servlet-name>
-    <servlet-class>com.example.servlets.RegistrationServlet</servlet-class>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.example.servlets.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
@@ -24,20 +24,10 @@
     <servlet-name>DepositServlet</servlet-name>
     <servlet-class>com.example.servlets.DepositServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>WithdrawServlet</servlet-name>
-    <servlet-class>com.example.servlets.WithdrawServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>TransferServlet</servlet-name>
-    <servlet-class>com.example.servlets.TransferServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ZelleServlet</servlet-name>
-    <servlet-class>com.example.servlets.ZelleServlet</servlet-class>
-  </servlet>
+  
+  
   <servlet-mapping>
-    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
@@ -56,14 +46,26 @@
     <servlet-name>DepositServlet</servlet-name>
     <url-pattern>/deposit</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>WithdrawServlet</servlet-name>
+    <servlet-class>com.example.servlets.WithdrawServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>WithdrawServlet</servlet-name>
     <url-pattern>/withdraw</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>TransferServlet</servlet-name>
+    <servlet-class>com.example.servlets.TransferServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>TransferServlet</servlet-name>
     <url-pattern>/transfer</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ZelleServlet</servlet-name>
+    <servlet-class>com.example.servlets.ZelleServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ZelleServlet</servlet-name>
     <url-pattern>/zelle</url-pattern>

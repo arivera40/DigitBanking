@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -53,7 +54,10 @@ public class TransactionService {
     public static boolean performZelle(Transaction transaction) {
     	String from_query = "UPDATE bank_accounts SET balance = balance - ? WHERE account_id = ?";
     	String to_query = "UPDATE bank_accounts SET balance = balance + ? WHERE account_id = ?";
-        // Your logic for Zelle transactions
     	return true;
+    }
+    
+    public static BigDecimal convertToCurrency(String amount) {
+    	return new BigDecimal(amount.replaceAll("[^\\d.]", ""));
     }
 }

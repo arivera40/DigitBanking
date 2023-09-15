@@ -15,13 +15,13 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RegistrationServlet
  */
-public class RegistrationServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistrationServlet() {
+    public RegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

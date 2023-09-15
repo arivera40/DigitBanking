@@ -34,16 +34,16 @@
     			<a href="${pageContext.request.contextPath}/account">Account</a>
     		</div>
     		<div class="nav-item deposit-btn">
-	        	<a href="DepositServlet">Deposit</a>
+	        	<a href="${pageContext.request.contextPath}/deposit">Deposit</a>
 	        </div>
 	        <div class="nav-item withdraw-btn">
-	        	<a href="WithdrawServlet">Withdraw</a>
+	        	<a href="${pageContext.request.contextPath}/withdraw">Withdraw</a>
 	        </div>
 	        <div class="nav-item transfer-btn">
-	        	<a href="TransferServlet">Transfer</a>
+	        	<a href="${pageContext.request.contextPath}/transfer">Transfer</a>
 	        </div>
-	        <div class="nav-item transfer-btn">
-	        	<a href="ZelleServlet">Zelle</a>
+	        <div class="nav-item zelle-btn">
+	        	<a href="${pageContext.request.contextPath}/zelle">Zelle</a>
 	        </div>
     	</div>
     </nav>
