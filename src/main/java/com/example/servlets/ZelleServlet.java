@@ -12,8 +12,10 @@ import java.io.IOException;
 import java.util.List;
 
 import com.example.dao.BankAccountDao;
+import com.example.dao.ZelleContactDao;
 import com.example.models.BankAccount;
 import com.example.models.User;
+import com.example.models.ZelleContact;
 
 /**
  * Servlet implementation class ZelleServlet
@@ -36,10 +38,10 @@ public class ZelleServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		
-		BankAccountDao bankAccountDao = new BankAccountDao();
-		List<BankAccount> accounts = bankAccountDao.getBankAccounts(user.getUserId());
+		ZelleContactDao zelleContactDao = new ZelleContactDao();
+		List<ZelleContact> contacts = zelleContactDao.getZelleContacts(user.getUserId());
 		
-		request.setAttribute("accounts", accounts);
+		request.setAttribute("contacts", contacts);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/zelle.jsp");
 	    dispatcher.forward(request, response);
 	}
@@ -48,8 +50,10 @@ public class ZelleServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String receiverId = request.getParameter("receiverId");
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("receiverId", receiverId);
 	}
 
 }

@@ -1,8 +1,7 @@
 $(document).ready(function() {
-	$('.account-tools').on('click', function() {
-		console.log("Hello World!");
-	});
-	
+	/**
+	 * Global
+	 */
 	$('#amount').keyup(function(e) {
 		$(this).val(format($(this).val()));
 	});
@@ -26,4 +25,21 @@ $(document).ready(function() {
 	    formatted = output.reverse().join("");
 	    return("$" + formatted + ((parts) ? "." + parts[1].substr(0, 2) : ""));
 	};
+	
+	/**
+	 * Home page
+	 */
+	$('.account-tools').on('click', function() {
+		console.log("Hello World!");
+	});
+	
+	/**
+	 * Zelle page
+	 */
+	$(document).on("click", "contact-info", function() {
+		var receiverId = $(this).data("receiver-id");
+		$.post("/zelle", {receiverId}, function(data) {
+			window.location.href = "/zelle/enter-amount";
+		});
+	});
 });
