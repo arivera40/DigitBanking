@@ -33,8 +33,7 @@ public class ZelleContactDao {
 					contact.setContactId(rs.getInt("contact_id"));
 					contact.setUserId(userId);
 					contact.setContactName(rs.getString("contact_name"));
-					contact.setPhoneNumber(rs.getString("phone_number"));
-					contact.setEmail(rs.getString("email"));
+					contact.setReceiverId(rs.getInt("receiver_id"));
 					contacts.add(contact);
 				}
 			}
@@ -44,5 +43,35 @@ public class ZelleContactDao {
 		}
 		
 		return contacts;
+	}
+	
+	public boolean createZelleContact(int userId, String contactName, String phoneNumber, String email) {
+		// Prepare search query to find receiver id.
+		String searchQuery = "SELECT * FROM users WHERE phone_number = ? OR email = ?";
+		try (PreparedStatement searchStmt = connection.prepareStatement(searchQuery)) {
+			searchStmt.setString(1, phoneNumber);
+			searchStmt.setString(2, email);
+			ResultSet searchRs = searchStmt.executeQuery();
+			
+			// If receiver id found, insert new zelle contact to table.
+			if (searchRs.next()) {
+				String insertQuery = "INSERT INTO zelle_contacts (user_id, contact_name, receiver_id) VALUES (?, ?, ?)";
+				try (PreparedStatement insertStmt = connection.prepareStatement(insertQuery)) {
+					insertStmt.setInt(1, userId);
+					insertStmt.setString(2, contactName);
+					insertStmt.setInt(3, searchRs.getInt("user_id"));
+					int rowsInserted = insertStmt.executeUpdate();
+					
+					// If insert successful, return true.
+					if (rowsInserted > 0) {
+						return true;
+					}
+				}
+			}
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

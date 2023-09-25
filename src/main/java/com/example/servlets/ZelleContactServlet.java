@@ -20,13 +20,13 @@ import com.example.models.ZelleContact;
 /**
  * Servlet implementation class ZelleServlet
  */
-public class ZelleServlet extends HttpServlet {
+public class ZelleContactServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ZelleServlet() {
+    public ZelleContactServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -50,10 +50,16 @@ public class ZelleServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String receiverId = request.getParameter("receiverId");
-		
 		HttpSession session = request.getSession();
-		session.setAttribute("receiverId", receiverId);
-	}
+		User user = (User) session.getAttribute("user");
+		String contactName = request.getParameter("contact_name");
+		int receiverId = Integer.parseInt(request.getParameter("receiver_id"));
+		int contactId = Integer.parseInt(request.getParameter("contact_id"));
+		
+		ZelleContact contact = new ZelleContact(contactId, user.getUserId(), contactName, receiverId);
 
+		session.setAttribute("contact", contact);
+		
+		response.sendRedirect(request.getContextPath() + "/zelle/transfer");
+	}
 }

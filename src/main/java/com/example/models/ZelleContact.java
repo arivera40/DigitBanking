@@ -4,23 +4,20 @@ public class ZelleContact {
 	private int contactId;
 	private int userId;
 	private String contactName;
-	private String phoneNumber;
-	private String email;
+	private int receiverId;
 	
 	public ZelleContact() {
-		this.setContactId(0);
-		this.setUserId(0);
-		this.setContactName("");
-		this.setPhoneNumber("");
-		this.setEmail("");
+		this.contactId = 0;
+		this.userId = 0;
+		this.contactName = "";
+		this.receiverId = 0;
 	}
 	
-	public ZelleContact(int contactId, int userId, String contactName, String phoneNumber, String email) {
-		this.setContactId(contactId);
-		this.setUserId(userId);
-		this.setContactName(contactName);
-		this.setPhoneNumber(phoneNumber);
-		this.setEmail(email);
+	public ZelleContact(int contactId, int userId, String contactName, int receiverId) {
+		this.contactId = contactId;
+		this.userId = userId;
+		this.contactName = contactName;
+		this.receiverId = receiverId;
 	}
 
 	/**
@@ -66,30 +63,18 @@ public class ZelleContact {
 	}
 
 	/**
-	 * @return the phoneNumber
+	 * @return the receiverId
 	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public int getReceiverId() {
+		return receiverId;
 	}
 
 	/**
-	 * @param phoneNumber the phoneNumber to set
+	 * @param receiverId the receiverId to set
 	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setReceiverId(int receiverId) {
+		this.receiverId = receiverId;
 	}
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
 
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
 }

@@ -17,20 +17,30 @@
 </head>
 <body>
 	<div class="main-container container-fluid transfer">
-		<form action="transfer" method="post">
-			<h1>Select Recipient</h1>
-			<p>All Recipients</p>
-			<div class="new-contact">
-				<a href="${pageContext.request.contextPath}/add-contact">New Contact</a>
-			</div>
+		<h1>Select Recipient</h1>
+		<p>All Recipients</p>
+		<div class="new-contact">
+			<a href="${pageContext.request.contextPath}/zelle/add-contact">New Contact</a>
+		</div>
+		<form method="post">
 			<table>
 				<c:forEach items="${contacts}" var="contact">
-			        <tr class="contact-info" data-receiver-id="${contact.getUserId()}">
-			            <td>${contact.getContactName()}</td>
+			        <tr class="contact-info">
+			            <td>
+			            	<button type="button"
+			            		name="contact_id"
+			            		value="${contact.getContactId()}"
+								data-receiver-id="${contact.getReceiverId()}">
+			            		${contact.getContactName()}
+			            	</button>
+			            </td>
 			        </tr>
-			    </c:forEach>
-		    </table>
-		</form>
+		        </c:forEach>
+	        </table>
+			<input type="hidden" name="contact_name" value="">
+			<input type="hidden" name="contact_id" value="">
+			<input type="hidden" name="receiver_id" value="">
+        </form>
 	</div>
 </body>
 </html>

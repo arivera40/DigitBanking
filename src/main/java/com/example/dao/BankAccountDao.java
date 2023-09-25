@@ -52,4 +52,27 @@ public class BankAccountDao {
 		
 		return accounts;
 	}
+	
+	public BankAccount getCheckingAccount(int userId) {
+		BankAccount account = new BankAccount();
+		String query = "SELECT * FROM bank_accounts WHERE user_id = ? AND account_type = ?";
+		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+			stmt.setInt(1, userId);
+			stmt.setInt(2, AccountType.CHECKING.getValue());
+			try (ResultSet rs = stmt.executeQuery()) {
+				if (rs.next()) {
+					account.setAccountId(rs.getInt("account_id"));
+					account.setAccountType(AccountType.CHECKING);
+					account.setUserId(userId);
+					account.setBalance(rs.getBigDecimal("balance"));
+					return account;
+				} else {
+					return null;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

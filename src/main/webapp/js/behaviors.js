@@ -36,10 +36,30 @@ $(document).ready(function() {
 	/**
 	 * Zelle page
 	 */
-	$(document).on("click", "contact-info", function() {
-		var receiverId = $(this).data("receiver-id");
-		$.post("/zelle", {receiverId}, function(data) {
-			window.location.href = "/zelle/enter-amount";
-		});
+    $('button[name="contact_id"]').on('click', function(e) {
+		e.preventDefault();
+		var contactName = $(this).text().trim();
+		var contactId = $(this).val();
+		var receiverId = $(this).data('receiver-id');
+		
+		$('input[name="contact_name"]').val(contactName);
+		$('input[name="contact_id"]').val(contactId);
+		$('input[name="receiver_id"]').val(receiverId);
+		
+		$('form').submit();
+	});
+	
+	$(document).on("click", ".add-contact #webform-submit", function(e) {
+	    e.preventDefault();
+
+	    var email = $("#email").val();
+	    var phoneNumber = $("#phoneNumber").val();
+	    
+	    if (!email && !phoneNumber) {
+	        alert("Please fill in at least one of the fields (Email or Phone Number).");
+	        return false;
+	    }
+	    
+	    return true;
 	});
 });

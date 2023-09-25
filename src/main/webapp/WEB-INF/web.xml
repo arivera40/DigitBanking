@@ -24,8 +24,6 @@
     <servlet-name>DepositServlet</servlet-name>
     <servlet-class>com.example.servlets.DepositServlet</servlet-class>
   </servlet>
-  
-  
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
@@ -63,11 +61,27 @@
     <url-pattern>/transfer</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>ZelleServlet</servlet-name>
-    <servlet-class>com.example.servlets.ZelleServlet</servlet-class>
+    <servlet-name>ZelleContactServlet</servlet-name>
+    <servlet-class>com.example.servlets.ZelleContactServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ZelleServlet</servlet-name>
+    <servlet-name>ZelleContactServlet</servlet-name>
     <url-pattern>/zelle</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ZelleTransferServlet</servlet-name>
+    <servlet-class>com.example.servlets.ZelleTransferServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ZelleTransferServlet</servlet-name>
+    <url-pattern>/zelle/transfer</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ZelleAddContactServlet</servlet-name>
+    <servlet-class>com.example.servlets.ZelleAddContactServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ZelleAddContactServlet</servlet-name>
+    <url-pattern>/zelle/add-contact</url-pattern>
   </servlet-mapping>
 </web-app>
